@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/01_Spring_Core/pom.xml" />
         <option value="$PROJECT_DIR$/02_SpringBean_LifeCycle/pom.xml" />
         <option value="$PROJECT_DIR$/03_DI_with_Spring/pom.xml" />
+        <option value="$PROJECT_DIR$/04_FullMode_vs_LightMode/pom.xml" />
       </list>
     </option>
   </component>
