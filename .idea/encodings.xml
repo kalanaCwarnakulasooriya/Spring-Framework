@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/01_Spring_Core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/02_SpringBean_LifeCycle/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/02_SpringBean_LifeCycle/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03_DI_with_Spring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03_DI_with_Spring/src/main/resources" charset="UTF-8" />
   </component>
 </project>
