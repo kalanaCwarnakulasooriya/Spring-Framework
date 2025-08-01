@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/06_Runtime_Value_Injection/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/07_Spring_Env/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/07_Spring_Env/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08_Spring_WebMVC/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08_Spring_WebMVC/src/main/resources" charset="UTF-8" />
   </component>
 </project>
