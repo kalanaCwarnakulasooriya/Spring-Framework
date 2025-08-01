@@ -8,10 +8,11 @@
         <option value="$PROJECT_DIR$/02_Spring_Bean_Life_Cycle/pom.xml" />
         <option value="$PROJECT_DIR$/03_DI_With_Spring/pom.xml" />
         <option value="$PROJECT_DIR$/04_FullMode_vs_LightMode/pom.xml" />
+        <option value="$PROJECT_DIR$/05_Configuration/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
