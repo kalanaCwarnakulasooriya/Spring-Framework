@@ -1,0 +1,51 @@
+body {
+    background: #f8f9fa;
+}
+
+.card {
+    border: none;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}
+
+.table thead th {
+    background-color: #3f51b5;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+
+.btn-primary:hover {
+    background-color: #32408f;
+    border-color: #32408f;
+}
+
+.modal-header {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.modal-footer {
+    background-color: #f1f1f1;
+}
+
+.badge-jobtype {
+    padding: 0.35em 0.6em;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+.badge-status {
+    font-weight: 500;
+}
+
+.pagination .page-link {
+    color: #3f51b5;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
