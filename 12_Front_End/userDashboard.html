@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            max-width: 550px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .btn-block {
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: 500;
+            color: #198754;
+            text-align: center;
+        }
+
+        .logout-btn {
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container text-center">
+    <div class="mb-4">
+        <i class="bi bi-bar-chart-fill" style="font-size: 48px; color: #0d6efd;"></i>
+    </div>
+    <h1>API Dashboard</h1>
+    <p class="subtitle">Test your role-based endpoints with ease</p>
+
+    <button class="btn btn-primary btn-block" onclick="callApi('test1')">
+        <i class="bi bi-shield-lock me-2"></i>Test Endpoint 1 (ADMIN)
+    </button>
+    <button class="btn btn-success btn-block" onclick="callApi('test2')">
+        <i class="bi bi-person-check me-2"></i>Test Endpoint 2 (USER)
+    </button>
+    <button class="btn btn-info text-white btn-block" onclick="callApi('test3')">
+        <i class="bi bi-person-video3 me-2"></i>Test Endpoint 3 (USER)
+    </button>
+
+    <div id="result"></div>
+
+    <button class="btn btn-outline-danger btn-block logout-btn" onclick="logout()">
+        <i class="bi bi-box-arrow-right me-2"></i>Logout
+    </button>
+</div>
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+<script>
+    // Toastr settings (optional customization)
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "timeOut": "3000"
+    };
+
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
+    window.onload = function () {
+        const token = getCookie("token");
+        if (!token) {
+            toastr.warning("You must be logged in.", "Access Denied");
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+        }
+    };
+
+    function callApi(endpoint) {
+        const token = getCookie("token");
+        if (!token) {
+            toastr.error("Unauthorized: No token found.", "API Error");
+            $('#result').html(`<div class="text-danger">❌ Unauthorized</div>`);
+            return;
+        }
+
+        $('#result').html(`
+            <div class="spinner-border text-primary" role="status"></div>
+            <div>Loading ${endpoint}...</div>
+        `);
+
+        setTimeout(() => {
+            $('#result').html(`
+                <div class="text-success">✅ Successfully called <strong>${endpoint}</strong> with token.</div>
+            `);
+            toastr.success(`Successfully called ${endpoint}`, "API Success");
+        }, 1200);
+    }
+
+    function logout() {
+        deleteCookie("token");
+        deleteCookie("username");
+        toastr.info("Logged out successfully.", "Logout");
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>

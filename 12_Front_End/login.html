@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #6c757d;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 1.5rem;
+        }
+
+        .login-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .login-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .login-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+            color: #6c757d;
+            padding: 0.75rem;
+        }
+
+        .form-control {
+            border-left: none;
+            padding-left: 0;
+            height: 45px;
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+        }
+
+        .form-check-input {
+            width: 1rem;
+            height: 1rem;
+            margin-top: 0;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .forgot-password {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            border: none;
+            height: 45px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-login:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.25rem 0;
+            font-size: 0.8rem;
+        }
+
+        .divider-line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .divider-text {
+            padding: 0 0.75rem;
+            color: #6c757d;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            color: var(--dark-color);
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            background-color: #f8f9fa;
+        }
+
+        .signup-link {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .signup-link a {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+        <div class="logo">
+            <i class="bi bi-person-circle" style="font-size: 3rem; color: #0d6efd;"></i>
+        </div>
+
+        <div class="login-header">
+            <h2>Welcome back</h2>
+            <p>Please enter your details to sign in</p>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="username" class="form-label">UserName</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    <button type="button" class="password-toggle" id="togglePassword">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="options">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-login w-100" id="loginBtn">Sign in</button>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <span class="divider-text">OR</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="social-login">
+                <button type="button" class="social-btn">
+                    <i class="bi bi-google"></i>
+                </button>
+                <button type="button" class="social-btn">
+                    <i class="bi bi-apple"></i>
+                </button>
+                <button type="button" class="social-btn">
+                    <i class="bi bi-facebook"></i>
+                </button>
+            </div>
+
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Add jQuery here -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Toastr CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const password = document.getElementById('password');
+        const icon = this.querySelector('i');
+        if (password.type === 'password') {
+            password.type = 'text';
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+        } else {
+            password.type = 'password';
+            icon.classList.remove('bi-eye-slash');
+            icon.classList.add('bi-eye');
+        }
+    });
+
+    $('#loginBtn').on('click', function (e) {
+        e.preventDefault();
+
+        const username = $('#username').val().trim();
+        const password = $('#password').val().trim();
+
+        if (!username || !password) {
+            toastr.warning('Please enter both username and password.', 'Missing Fields');
+            return;
+        }
+
+        $.ajax({
+            url: 'http://localhost:8080/auth/login',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ username, password }),
+            success: function (response) {
+                toastr.success('Redirecting to dashboard...', 'Login Successful!');
+                setCookie("token", response.data.accessToken, 1);
+                // setCookie("username", username, 1);
+                setTimeout(() => {
+                    window.location.href = 'userDashboard.html';
+                }, 2000);
+            },
+            error: function (xhr) {
+                const message = xhr.responseJSON?.data || 'Invalid credentials or server error.';
+                toastr.error(message, 'Login Failed');
+            }
+        });
+    });
+
+    // Set cookie function
+    function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Strict`;
+    }
+
+    toastr.options = {
+        "closeButton": true,
+        // "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "timeOut": "3000"
+    };
+</script>
+</body>
+</html>
