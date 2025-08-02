@@ -2,10 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Spring_Testing" />
         <module name="Spring_WebMVC" />
         <module name="Spring_Security_With_JWT" />
         <module name="03_DI_With_Spring" />
@@ -24,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Back_End" options="-parameters" />
       <module name="Spring_Security_With_JWT" options="-parameters" />
+      <module name="Spring_Testing" options="-parameters" />
     </option>
   </component>
 </project>
