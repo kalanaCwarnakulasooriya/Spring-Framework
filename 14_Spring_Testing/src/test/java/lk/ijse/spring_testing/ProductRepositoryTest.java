@@ -46,6 +46,6 @@ public class ProductRepositoryTest {
         productRepository.save(product1);
         productRepository.save(product2);
         List<Product> products=productRepository.findAll();
-        Assertions.assertEquals(1,products.size());
+        Assertions.assertEquals(2,products.size());
     }
 }
